@@ -1,8 +1,10 @@
 package com.kaligent.springboot.learnjpaandhibernate.course.jdbc;
 
+import com.kaligent.springboot.learnjpaandhibernate.course.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class CourseJdbcCommandLineRunner implements CommandLineRunner{
@@ -13,7 +15,11 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
         // TODO Auto-generated method stub
-        repository.insert();
+        repository.insert(new Course(1, "Learn AWS", "in28minutes"));
+        repository.insert(new Course(2, "Learn Azure", "in28minutes"));
+        repository.insert(new Course(3, "Learn GCP", "in28minutes"));
+
+        repository.deleteById(1);
     }
     
 }
